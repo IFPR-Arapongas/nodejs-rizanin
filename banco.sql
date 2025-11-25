@@ -1,0 +1,14 @@
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100) UNIQUE NOT NULL,
+  senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tarefas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  titulo VARCHAR(255) NOT NULL,
+  status VARCHAR(20) DEFAULT 'A fazer',
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
